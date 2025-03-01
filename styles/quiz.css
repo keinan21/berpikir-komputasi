@@ -1,0 +1,117 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.quiz-container {
+  max-width: 600px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.2);
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+button {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #e0e0e0;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Highlighting for selected answer */
+button.btn.selected {
+  background-color: #ffeb3b; /* yellow for selection */
+}
+
+/* Final feedback classes */
+button.btn.selected.correct {
+  background-color: #4CAF50 !important; /* green */
+  color: #fff;
+}
+
+button.btn.selected.wrong {
+  background-color: #F44336 !important; /* red */
+  color: #fff;
+}
+
+/* Floating Home Button */
+.back-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: #fff;
+  color: #000;
+  padding: 10px;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  font-size: 18px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.back-button:hover {
+  background: #e0e0e0;
+}
+
+/* Accordion styling for review section */
+#explanations details {
+  background: rgba(255, 255, 255, 0.1);
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#explanations summary {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#explanations p {
+  margin: 5px 0 0 10px;
+  text-align: left;
+}
+
+#question-container {
+  margin-bottom: 10px;
+}

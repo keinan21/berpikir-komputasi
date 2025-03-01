@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Computational Thinking Quiz 🎯</title>
+  <link rel="stylesheet" href="styles/quiz.css">
+</head>
+<body>
+
+  <!-- Floating Home Button -->
+  <a href="index.html" class="back-button">&lt;</a>
+
+  <div class="quiz-container">
+    <h1>Quiz: Computational Thinking 🧠</h1>
+    <p>Test your knowledge with these 10 questions!</p>
+
+    <div id="quiz">
+      <div id="question-container">
+        <h2 id="question-text">Loading question...</h2>
+        <div id="answer-buttons" class="btn-container"></div>
+      </div>
+      <button id="next-button" disabled>Next ➡️</button>
+    </div>
+
+    <div id="result" class="hidden">
+      <h2>Your Score: <span id="score">0</span>/10 🎉</h2>
+      <div id="explanations"></div>
+      <button id="restart-button">Try Again 🔄</button>
+    </div>
+  </div>
+
+  <script src="script/script.js"></script>
+</body>
+</html>

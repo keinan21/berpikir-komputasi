@@ -1,0 +1,25 @@
+body { font-family: Arial, sans-serif; background-color: #000; color: #fff; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+
+.container { background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(255, 255, 255, 0.2); text-align: center; max-width: 400px; width: 90%; }
+
+.header { margin-bottom: 10px; }
+
+.description { margin-bottom: 20px; }
+
+.nav { list-style: none; padding: 0; }
+
+.nav__list { 
+  padding: 0; 
+  list-style-type: none;
+}
+
+.nav__item { margin: 10px 0; }
+
+.nav__link { display: block; background: rgba(255, 255, 255, 0.2); padding: 10px; border-radius: 5px; color: #fff; text-decoration: none; transition: background 0.3s; }
+
+.nav__link:hover { background: rgba(255, 255, 255, 0.4); }
+
+@media (max-width: 600px) { .container { width: 95%; } }
+
+
+
