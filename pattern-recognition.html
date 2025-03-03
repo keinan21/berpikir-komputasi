@@ -1,184 +1,384 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pattern Recognition 🧐</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #000;
-      color: #fff;
-      margin: 0;
-      padding: 20px;
-      text-align: center;
-    }
-    .container {
-      max-width: 800px;
-      margin: auto;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(255, 255, 255, 0.2);
-      text-align: justify;
-      line-height: 1.6;
-    }
-    h1, h2 {
-      color: #fff;
-      text-align: center;
-    }
-    p {
-      text-align: justify;
-    }
-    img {
-      max-width: 100%;
-      border-radius: 5px;
-      display: block;
-      margin: 10px auto;
-    }
-    iframe {
-      width: 100%;
-      height: 400px;
-      border-radius: 5px;
-      display: block;
-      margin: 20px auto;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    .table-wrapper {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      margin: 20px 0;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    table, th, td {
-      border: 1px solid #fff;
-    }
-    th, td {
-      padding: 10px;
-      text-align: center;
-    }
-    th {
-      background-color: rgba(255, 255, 255, 0.2);
-    }
-    /* Floating Home Button */
-    .back-button {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background: #fff;
-      color: #000;
-      padding: 10px;
-      border-radius: 50%;
-      text-decoration: none;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-      transition: background 0.3s;
-      z-index: 9999;
-      font-size: 18px;
-      width: 20px;
-      height: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .back-button:hover {
-      background: #e0e0e0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pattern Recognition 🧐</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        :root {
+            --primary: #00ff9d;
+            --secondary: #6c63ff;
+            --accent: #ff4081;
+            --max-width: 720px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            margin: 0;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(-45deg, #0f0f1f, #1a1a2f, #2a2a4a);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+            max-width: var(--max-width);
+            margin: 2rem auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transform: translateY(20px);
+            opacity: 0;
+        }
+
+        h1, h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary);
+            text-shadow: 0 0 15px rgba(0, 255, 157, 0.5);
+            text-align: center;
+        }
+
+        h1 { font-size: 2rem; }
+        h2 { font-size: 1.5rem; margin: 2rem 0 1.5rem; }
+
+        p {
+            text-align: justify;
+            hyphens: auto;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #e0e0ff;
+        }
+
+        img, iframe {
+            width: 100%;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        img:hover, iframe:hover {
+            transform: translateY(-5px);
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 2rem 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        th {
+            background: rgba(108, 99, 255, 0.2);
+            color: var(--primary);
+        }
+
+        .pattern-list {
+            display: grid;
+            gap: 1.5rem;
+            padding: 0;
+        }
+
+        .pattern-item {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .pattern-item:hover {
+            background: rgba(108, 99, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .pattern-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.1), 
+                transparent);
+            transition: 0.5s;
+        }
+
+        .pattern-item:hover::before {
+            left: 100%;
+        }
+
+        .pattern-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .pattern-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: var(--primary);
+            color: #000;
+            padding: 12px;
+            border-radius: 50%;
+            text-decoration: none;
+            box-shadow: 0 0 15px rgba(0, 255, 157, 0.5);
+            transition: all 0.3s ease;
+            z-index: 9999;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .back-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(0, 255, 157, 0.8);
+        }
+
+        .video-wrapper {
+            aspect-ratio: 16/9;
+            margin: 2rem 0;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+            
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.3rem; }
+            
+            .pattern-item {
+                padding: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div id="particles-js"></div>
+    
+    <a href="index.html" class="back-button">&lt;</a>
+    
+    <div class="container">
+        <h1><i class="fas fa-project-diagram"></i> Pattern Recognition 🧐</h1>
+        <p>
+            Pattern Recognition is the ability to identify regularities, trends, or repeated elements in data, behaviors, or natural phenomena. It’s a crucial component of computational thinking that allows us to make sense of complex information by finding order in the chaos.
+        </p>
 
-  <!-- Floating Home Button -->
-  <a href="index.html" class="back-button">&lt;</a>
+        <h2><i class="fas fa-search"></i> What is Pattern Recognition?</h2>
+        <p>
+            At its core, Pattern Recognition involves observing data or events and detecting underlying structures or recurring themes. Whether it's recognizing the predictable rush-hour traffic in Jakarta or identifying repeated motifs in traditional Indonesian art, this skill helps simplify decision-making and problem-solving.
+        </p>
+        <img src="https://placehold.co/800x400" alt="Pattern Recognition Illustration">
 
-  <div class="container">
-    <h1>Pattern Recognition 🧐</h1>
-    <p>
-      Pattern Recognition is the ability to identify regularities, trends, or repeated elements in data, behaviors, or natural phenomena. It’s a crucial component of computational thinking that allows us to make sense of complex information by finding order in the chaos.
-    </p>
+        <h2><i class="fas fa-map-marked-alt"></i> Real-Life Examples in Indonesia</h2>
+        <div class="pattern-list">
+            <div class="pattern-item">
+                <div class="pattern-header">
+                    <i class="fas fa-shopping-cart pattern-icon"></i>
+                    <h3>Market Trends</h3>
+                </div>
+                <p>Vendors observe buying patterns and seasonal demands to stock products effectively.</p>
+            </div>
+            
+            <div class="pattern-item">
+                <div class="pattern-header">
+                    <i class="fas fa-cloud-sun pattern-icon"></i>
+                    <h3>Weather Patterns</h3>
+                </div>
+                <p>Farmers study seasonal changes to determine planting and harvesting times.</p>
+            </div>
+            
+            <div class="pattern-item">
+                <div class="pattern-header">
+                    <i class="fas fa-car pattern-icon"></i>
+                    <h3>Traffic Flow</h3>
+                </div>
+                <p>Commuters notice recurring traffic patterns to plan efficient journeys.</p>
+            </div>
+        </div>
 
-    <h2>What is Pattern Recognition?</h2>
-    <p>
-      At its core, Pattern Recognition involves observing data or events and detecting underlying structures or recurring themes. Whether it's recognizing the predictable rush-hour traffic in Jakarta or identifying repeated motifs in traditional Indonesian art, this skill helps simplify decision-making and problem-solving. In technology, it plays a fundamental role in machine learning, data analysis, and artificial intelligence by enabling systems to learn from past data.
-    </p>
-    <p>
-      By identifying patterns, we can forecast outcomes, classify information, and design efficient solutions. Instead of seeing isolated incidents, pattern recognition allows us to see the bigger picture and predict future trends.
-    </p>
-    <img src="https://via.placeholder.com/800x400?text=Pattern+Recognition" alt="Pattern Recognition Illustration">
+        <h2><i class="fas fa-star"></i> Advantages of Pattern Recognition</h2>
+        <div class="pattern-list">
+            <div class="pattern-item">
+                <div class="pattern-header">
+                    <i class="fas fa-chart-line pattern-icon"></i>
+                    <h3>Enhanced Prediction</h3>
+                </div>
+                <p>Recognizing trends helps in forecasting future events accurately.</p>
+            </div>
+            
+            <div class="pattern-item">
+                <div class="pattern-header">
+                    <i class="fas fa-check-circle pattern-icon"></i>
+                    <h3>Efficient Decision-Making</h3>
+                </div>
+                <p>Clear patterns lead to streamlined and error-free decisions.</p>
+            </div>
+            
+            <div class="pattern-item">
+                <div class="pattern-header">
+                    <i class="fas fa-lightbulb pattern-icon"></i>
+                    <h3>Innovation</h3>
+                </div>
+                <p>Spotting patterns sparks creative solutions and new ideas.</p>
+            </div>
+            
+            <div class="pattern-item">
+                <div class="pattern-header">
+                    <i class="fas fa-brain pattern-icon"></i>
+                    <h3>Learning & Adaptation</h3>
+                </div>
+                <p>Understanding patterns enables continuous improvement and adaptation.</p>
+            </div>
+        </div>
 
-    <h2>Real-Life Examples in Indonesia 🇮🇩</h2>
-    <p>
-      In Indonesia, pattern recognition is part of everyday life:
-    </p>
-    <ul>
-      <li><strong>Market Trends:</strong> Traditional market vendors observe buying patterns and seasonal demands to decide what products to stock.</li>
-      <li><strong>Weather Patterns:</strong> Farmers study seasonal changes and rainfall trends to determine the best planting and harvesting times.</li>
-      <li><strong>Traffic Flow:</strong> Commuters notice recurring traffic patterns in cities like Jakarta and plan their journeys to avoid congestion.</li>
-    </ul>
+        <h2><i class="fas fa-balance-scale"></i> Pattern Recognition vs. Random Observation</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Pattern Recognition</th>
+                        <th>Random Observation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Approach</td>
+                        <td>Systematic & data-driven</td>
+                        <td>Unstructured & sporadic</td>
+                    </tr>
+                    <tr>
+                        <td>Predictability</td>
+                        <td>Enables forecasting</td>
+                        <td>Inconsistent outcomes</td>
+                    </tr>
+                    <tr>
+                        <td>Efficiency</td>
+                        <td>Saves time</td>
+                        <td>Wasted effort</td>
+                    </tr>
+                    <tr>
+                        <td>Application</td>
+                        <td>Essential in AI & planning</td>
+                        <td>Limited practical use</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-    <h2>Advantages of Pattern Recognition</h2>
-    <ul>
-      <li><strong>Enhanced Prediction:</strong> Recognizing trends helps in forecasting future events—be it in business, weather, or daily routines.</li>
-      <li><strong>Efficient Decision-Making:</strong> With clear patterns, decision-making becomes more streamlined and less prone to errors.</li>
-      <li><strong>Innovation:</strong> Spotting recurring elements can spark creative solutions and innovative ideas in both technology and art.</li>
-      <li><strong>Learning and Adaptation:</strong> By understanding patterns, individuals and systems can continuously improve and adapt to new challenges.</li>
-    </ul>
+        <h2><i class="fas fa-palette"></i> Cultural Insights</h2>
+        <p>
+            Pattern recognition is woven into Indonesian culture through traditional arts like batik and wayang kulit, showcasing intricate, repeating patterns with symbolic meanings. The rhythmic repetition in gamelan music mirrors natural and societal patterns observed over generations.
+        </p>
+        <img src="https://placehold.co/600x400" alt="Indonesian Pattern Recognition Illustration">
 
-    <h2>Pattern Recognition vs. Random Observation</h2>
-    <p>
-      The table below contrasts the structured approach of Pattern Recognition with the randomness of mere observation:
-    </p>
-    <div class="table-wrapper">
-      <table>
-        <thead>
-          <tr>
-            <th>Aspect</th>
-            <th>Pattern Recognition</th>
-            <th>Random Observation</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Approach</td>
-            <td>Systematic, data-driven, and repeatable</td>
-            <td>Unstructured and sporadic</td>
-          </tr>
-          <tr>
-            <td>Predictability</td>
-            <td>Enables forecasting and informed decisions</td>
-            <td>Often leads to inconsistent outcomes</td>
-          </tr>
-          <tr>
-            <td>Efficiency</td>
-            <td>Saves time by leveraging recurring trends</td>
-            <td>May result in wasted effort on non-relevant details</td>
-          </tr>
-          <tr>
-            <td>Application</td>
-            <td>Essential in AI, data science, and strategic planning</td>
-            <td>Limited in scope and practical use</td>
-          </tr>
-        </tbody>
-      </table>
+        <h2><i class="fas fa-video"></i> Learn More</h2>
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/example_video_id" 
+                    allowfullscreen
+                    loading="lazy"
+                    title="Pattern Recognition Explained"></iframe>
+        </div>
     </div>
 
-    <h2>Fun Facts & Cultural Insights 🎉</h2>
-    <p>
-      Did you know that pattern recognition is woven into the fabric of Indonesian culture? Traditional arts such as batik and wayang kulit showcase intricate, repeating patterns that hold symbolic meanings and tell cultural stories. The rhythmic repetition in gamelan music creates a harmonious flow that not only delights the ears but also mirrors natural and societal patterns observed over generations.
-    </p>
-    <img src="https://placehold.co/600x400" alt="Indonesian Pattern Recognition Illustration">
+    <script>
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80 },
+                color: { value: '#00ff9d' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5 },
+                size: { value: 3 },
+                move: {
+                    enable: true,
+                    speed: 1.5,
+                    direction: 'none',
+                    random: true,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'repulse' },
+                    onclick: { enable: true, mode: 'push' },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
 
-    <h2>Learn More 🎥</h2>
-    <p>
-      For a deeper exploration of pattern recognition and its practical applications in technology and daily life, check out this insightful video:
-    </p>
-    <iframe src="https://www.youtube.com/embed/example_video_id" allowfullscreen></iframe>
-    
-  </div>
-
+        gsap.to(".container", {
+            duration: 1,
+            y: 0,
+            opacity: 1,
+            ease: "power4.out"
+        });
+    </script>
 </body>
 </html>

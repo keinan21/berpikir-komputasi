@@ -1,35 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Computational Thinking Quiz 🎯</title>
-  <link rel="stylesheet" href="styles/quiz.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computational Thinking Quiz 🎯</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/quiz.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
+    <div id="particles-js"></div>
+    
+    <a href="index.html" class="back-button">&lt;</a>
 
-  <!-- Floating Home Button -->
-  <a href="index.html" class="back-button">&lt;</a>
+    <div class="quiz-container">
+        <h1><i class="fas fa-brain"></i> Computational Thinking Quiz 🧠</h1>
+        <p class="quiz-description">Test your knowledge with these 10 questions!</p>
 
-  <div class="quiz-container">
-    <h1>Quiz: Computational Thinking 🧠</h1>
-    <p>Test your knowledge with these 10 questions!</p>
+        <div id="quiz">
+            <div id="question-container">
+                <h2 id="question-text">Loading question...</h2>
+                <div id="answer-buttons" class="btn-container"></div>
+            </div>
+            <button id="next-button" class="quiz-nav-button" disabled>
+                Next <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
 
-    <div id="quiz">
-      <div id="question-container">
-        <h2 id="question-text">Loading question...</h2>
-        <div id="answer-buttons" class="btn-container"></div>
-      </div>
-      <button id="next-button" disabled>Next ➡️</button>
+        <div id="result" class="hidden">
+            <h2>Your Score: <span id="score">0</span>/10 <i class="fas fa-trophy"></i></h2>
+            <div id="explanations"></div>
+            <button id="restart-button" class="quiz-nav-button">
+                Try Again <i class="fas fa-redo"></i>
+            </button>
+        </div>
     </div>
 
-    <div id="result" class="hidden">
-      <h2>Your Score: <span id="score">0</span>/10 🎉</h2>
-      <div id="explanations"></div>
-      <button id="restart-button">Try Again 🔄</button>
-    </div>
-  </div>
-
-  <script src="script/script.js"></script>
+    <script src="script/script.js"></script>
 </body>
 </html>

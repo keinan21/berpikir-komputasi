@@ -1,185 +1,384 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Algorithm 🛠</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #000;
-      color: #fff;
-      margin: 0;
-      padding: 20px;
-      text-align: center;
-    }
-    .container {
-      max-width: 800px;
-      margin: auto;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(255, 255, 255, 0.2);
-      text-align: justify;
-      line-height: 1.6;
-    }
-    h1, h2 {
-      color: #fff;
-      text-align: center;
-    }
-    p {
-      text-align: justify;
-    }
-    img {
-      max-width: 100%;
-      border-radius: 5px;
-      display: block;
-      margin: 10px auto;
-    }
-    iframe {
-      width: 100%;
-      height: 400px;
-      border-radius: 5px;
-      display: block;
-      margin: 20px auto;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    .table-wrapper {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      margin: 20px 0;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    table, th, td {
-      border: 1px solid #fff;
-    }
-    th, td {
-      padding: 10px;
-      text-align: center;
-    }
-    th {
-      background-color: rgba(255, 255, 255, 0.2);
-    }
-    /* Floating Home Button */
-    .back-button {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background: #fff;
-      color: #000;
-      padding: 10px;
-      border-radius: 50%;
-      text-decoration: none;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-      transition: background 0.3s;
-      z-index: 9999;
-      font-size: 18px;
-      width: 20px;
-      height: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .back-button:hover {
-      background: #e0e0e0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm 🛠</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        :root {
+            --primary: #00ff9d;
+            --secondary: #6c63ff;
+            --accent: #ff4081;
+            --max-width: 720px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            margin: 0;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(-45deg, #0f0f1f, #1a1a2f, #2a2a4a);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+            max-width: var(--max-width);
+            margin: 2rem auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transform: translateY(20px);
+            opacity: 0;
+        }
+
+        h1, h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary);
+            text-shadow: 0 0 15px rgba(0, 255, 157, 0.5);
+            text-align: center;
+        }
+
+        h1 { font-size: 2rem; }
+        h2 { font-size: 1.5rem; margin: 2rem 0 1.5rem; }
+
+        p {
+            text-align: justify;
+            hyphens: auto;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #e0e0ff;
+        }
+
+        img, iframe {
+            width: 100%;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        img:hover, iframe:hover {
+            transform: translateY(-5px);
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 2rem 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        th {
+            background: rgba(108, 99, 255, 0.2);
+            color: var(--primary);
+        }
+
+        .algorithm-list {
+            display: grid;
+            gap: 1.5rem;
+            padding: 0;
+        }
+
+        .algorithm-item {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .algorithm-item:hover {
+            background: rgba(108, 99, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .algorithm-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.1), 
+                transparent);
+            transition: 0.5s;
+        }
+
+        .algorithm-item:hover::before {
+            left: 100%;
+        }
+
+        .algorithm-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .algorithm-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: var(--primary);
+            color: #000;
+            padding: 12px;
+            border-radius: 50%;
+            text-decoration: none;
+            box-shadow: 0 0 15px rgba(0, 255, 157, 0.5);
+            transition: all 0.3s ease;
+            z-index: 9999;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .back-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(0, 255, 157, 0.8);
+        }
+
+        .video-wrapper {
+            aspect-ratio: 16/9;
+            margin: 2rem 0;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+            
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.3rem; }
+            
+            .algorithm-item {
+                padding: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div id="particles-js"></div>
+    
+    <a href="index.html" class="back-button">&lt;</a>
+    
+    <div class="container">
+        <h1><i class="fas fa-code"></i> Algorithm 🛠</h1>
+        <p>
+            An algorithm is a precise set of instructions designed to perform a specific task or solve a problem. In computational thinking, algorithms are essential because they provide a clear, step-by-step procedure that can be executed by a computer or even by a person.
+        </p>
 
-  <!-- Floating Home Button -->
-  <a href="index.html" class="back-button">&lt;</a>
+        <h2><i class="fas fa-question-circle"></i> What is an Algorithm?</h2>
+        <p>
+            Algorithms are everywhere—from the way your smartphone sorts photos by date to how online shopping sites recommend products. They form the backbone of computing, ensuring tasks are completed efficiently and systematically.
+        </p>
+        <img src="https://placehold.co/800x400" alt="Algorithm Illustration">
 
-  <div class="container">
-    <h1>Algorithm 🛠</h1>
-    <p>
-      An algorithm is a precise set of instructions designed to perform a specific task or solve a problem. In computational thinking, algorithms are essential because they provide a clear, step-by-step procedure that can be executed by a computer or even by a person.
-    </p>
+        <h2><i class="fas fa-map-marked-alt"></i> Real-Life Applications in Indonesia</h2>
+        <div class="algorithm-list">
+            <div class="algorithm-item">
+                <div class="algorithm-header">
+                    <i class="fas fa-car algorithm-icon"></i>
+                    <h3>Transportation</h3>
+                </div>
+                <p>Navigation apps use algorithms to find the fastest routes through Jakarta’s traffic.</p>
+            </div>
+            
+            <div class="algorithm-item">
+                <div class="algorithm-header">
+                    <i class="fas fa-university algorithm-icon"></i>
+                    <h3>Banking</h3>
+                </div>
+                <p>Financial institutions use algorithms to detect fraud and manage customer data securely.</p>
+            </div>
+            
+            <div class="algorithm-item">
+                <div class="algorithm-header">
+                    <i class="fas fa-shopping-cart algorithm-icon"></i>
+                    <h3>E-commerce</h3>
+                </div>
+                <p>Online platforms recommend products based on browsing habits and past purchases.</p>
+            </div>
+        </div>
 
-    <h2>What is an Algorithm?</h2>
-    <p>
-      Algorithms are everywhere—from the way your smartphone sorts photos by date to how online shopping sites recommend products. They form the backbone of computing, ensuring tasks are completed efficiently and systematically. An algorithm begins with a well-defined problem, breaks it into smaller steps, and then applies a sequence of operations to arrive at a solution. This clarity and precision help eliminate ambiguity in outcomes.
-    </p>
-    <p>
-      Think of an algorithm as a recipe: just as a recipe lists step-by-step instructions to prepare a dish, an algorithm lays out steps to solve a problem. Both require attention to detail and order to ensure success.
-    </p>
-    <img src="https://via.placeholder.com/800x400?text=Algorithm+Illustration" alt="Algorithm Illustration">
+        <h2><i class="fas fa-star"></i> Advantages of Algorithms</h2>
+        <div class="algorithm-list">
+            <div class="algorithm-item">
+                <div class="algorithm-header">
+                    <i class="fas fa-stopwatch algorithm-icon"></i>
+                    <h3>Efficiency</h3>
+                </div>
+                <p>Automates repetitive tasks, saving time and reducing errors.</p>
+            </div>
+            
+            <div class="algorithm-item">
+                <div class="algorithm-header">
+                    <i class="fas fa-check-circle algorithm-icon"></i>
+                    <h3>Consistency</h3>
+                </div>
+                <p>Produces the same output for the same input, ensuring reliable results.</p>
+            </div>
+            
+            <div class="algorithm-item">
+                <div class="algorithm-header">
+                    <i class="fas fa-expand algorithm-icon"></i>
+                    <h3>Scalability</h3>
+                </div>
+                <p>Handles increasing amounts of data, ideal for big data applications.</p>
+            </div>
+            
+            <div class="algorithm-item">
+                <div class="algorithm-header">
+                    <i class="fas fa-lightbulb algorithm-icon"></i>
+                    <h3>Problem-Solving</h3>
+                </div>
+                <p>Breaks down complex problems into manageable steps.</p>
+            </div>
+        </div>
 
-    <h2>Real-Life Applications in Indonesia 🇮🇩</h2>
-    <p>
-      Algorithms play a crucial role in everyday life in Indonesia:
-    </p>
-    <ul>
-      <li><strong>Transportation:</strong> Navigation apps like Waze and Google Maps use algorithms to find the fastest routes through Jakarta’s notorious traffic.</li>
-      <li><strong>Banking:</strong> Financial institutions employ algorithms to detect fraudulent transactions and manage large sets of customer data securely.</li>
-      <li><strong>E-commerce:</strong> Online shopping platforms recommend products based on browsing habits and past purchases using sophisticated recommendation algorithms.</li>
-    </ul>
+        <h2><i class="fas fa-balance-scale"></i> Algorithm vs. Non-Algorithmic Approaches</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Algorithmic Approach</th>
+                        <th>Non-Algorithmic Approach</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Clarity</td>
+                        <td>Clear, step-by-step instructions</td>
+                        <td>Often ambiguous and prone to error</td>
+                    </tr>
+                    <tr>
+                        <td>Efficiency</td>
+                        <td>Optimized for performance</td>
+                        <td>Can be slow and inefficient</td>
+                    </tr>
+                    <tr>
+                        <td>Scalability</td>
+                        <td>Easily scales with increasing data</td>
+                        <td>Struggles with complexity</td>
+                    </tr>
+                    <tr>
+                        <td>Reliability</td>
+                        <td>Consistent results with repeatability</td>
+                        <td>Results can vary widely</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-    <h2>Advantages of Using Algorithms</h2>
-    <ul>
-      <li><strong>Efficiency:</strong> Automates repetitive tasks, saving time and reducing human error.</li>
-      <li><strong>Consistency:</strong> Produces the same output for the same input, ensuring reliable results.</li>
-      <li><strong>Scalability:</strong> Handles increasing amounts of data, making them ideal for big data applications.</li>
-      <li><strong>Problem-Solving:</strong> Breaks down complex problems into manageable steps, making challenges easier to tackle.</li>
-    </ul>
+        <h2><i class="fas fa-lightbulb"></i> Fun Facts & Insights</h2>
+        <p>
+            The word "algorithm" originates from the Persian mathematician Al-Khwarizmi. In Indonesia, algorithm-driven innovations are fueling advancements in fintech and e-commerce, contributing significantly to the nation’s digital transformation.
+        </p>
+        <img src="https://placehold.co/600x400" alt="Algorithm History">
 
-    <h2>Algorithm vs. Non-Algorithmic Approaches</h2>
-    <p>
-      To understand the impact of algorithms, consider the following comparison between an algorithmic approach and a non-algorithmic, ad-hoc method:
-    </p>
-    <div class="table-wrapper">
-      <table>
-        <thead>
-          <tr>
-            <th>Aspect</th>
-            <th>Algorithmic Approach</th>
-            <th>Non-Algorithmic Approach</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Clarity</td>
-            <td>Clear, step-by-step instructions</td>
-            <td>Often ambiguous and prone to error</td>
-          </tr>
-          <tr>
-            <td>Efficiency</td>
-            <td>Optimized for performance</td>
-            <td>Can be slow and inefficient</td>
-          </tr>
-          <tr>
-            <td>Scalability</td>
-            <td>Easily scales with increasing data</td>
-            <td>Struggles with complexity</td>
-          </tr>
-          <tr>
-            <td>Reliability</td>
-            <td>Consistent results with repeatability</td>
-            <td>Results can vary widely</td>
-          </tr>
-        </tbody>
-      </table>
+        <h2><i class="fas fa-video"></i> Learn More</h2>
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/example_video_id" 
+                    allowfullscreen
+                    loading="lazy"
+                    title="Algorithm Explained"></iframe>
+        </div>
     </div>
 
-    <h2>Fun Facts & Insights 🎉</h2>
-    <p>
-      The word "algorithm" originates from the name of the Persian mathematician Al-Khwarizmi, whose work laid the foundations for modern algebra. His name evolved into the term we use today. In Indonesia, algorithm-driven innovations are fueling advancements in sectors such as fintech and e-commerce, contributing significantly to the nation’s digital transformation.
-    </p>
-    <p>
-      Moreover, algorithmic thinking isn't limited to computers. Traditional practices—like the systematic processes behind batik design or the organization of local market fairs—reflect a natural inclination towards step-by-step problem-solving.
-    </p>
+    <script>
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80 },
+                color: { value: '#00ff9d' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5 },
+                size: { value: 3 },
+                move: {
+                    enable: true,
+                    speed: 1.5,
+                    direction: 'none',
+                    random: true,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'repulse' },
+                    onclick: { enable: true, mode: 'push' },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
 
-    <h2>Learn More 🎥</h2>
-    <p>
-      For a deeper dive into algorithms and their far-reaching impact on technology and society, check out this informative video:
-    </p>
-    <iframe src="https://www.youtube.com/embed/example_video_id" allowfullscreen></iframe>
-  </div>
-
+        gsap.to(".container", {
+            duration: 1,
+            y: 0,
+            opacity: 1,
+            ease: "power4.out"
+        });
+    </script>
 </body>
 </html>
