@@ -39,106 +39,266 @@ document.addEventListener("DOMContentLoaded", function() {
   
   const questions = [
     {
-      question: "What is Computational Thinking?",
+      question: "Andi sedang mengerjakan proyek membuat aplikasi pemantau banjir Jakarta. Menurutmu, apa itu Computational Thinking dalam konteks ini?",
       answers: [
-        { text: "A way to play video games", correct: false },
-        { text: "A problem-solving method using logical steps", correct: true },
-        { text: "A type of computer hardware", correct: false },
-        { text: "A method to learn languages", correct: false }
+        { 
+          text: "Cara main game PUBG biar jago", 
+          correct: false,
+          feedback: "Salah! Meskipun gaming butuh strategi, ini bukan hubungannya langsung dengan CT" 
+        },
+        { 
+          text: "Metode pemecahan masalah dengan analisis logis dan langkah sistematis", 
+          correct: true,
+          feedback: "Benar! CT membantu Andi memecah masalah kompleks menjadi bagian yang bisa diatasi"
+        },
+        { 
+          text: "Teknik merakit komputer gaming", 
+          correct: false,
+          feedback: "Hampir terkecoh? CT lebih tentang cara berpikir daripada perangkat fisik" 
+        },
+        { 
+          text: "Cara menghafal syntax programming", 
+          correct: false,
+          feedback: "Bukan sekedar hafalan, tapi proses berpikir sistematis" 
+        }
       ],
-      explanation: "Computational thinking is a problem-solving process that involves breaking down problems and devising a solution using a series of logical steps."
+      explanation: "Computational Thinking adalah kerangka berpikir yang meliputi:<br>1. Memecah masalah kompleks (dekomposisi)<br>2. Mengenali pola data banjir (pattern recognition)<br>3. Menyusun algoritma prediksi<br>4. Mengabaikan data tidak relevan (abstraksi)<br>Contoh: Andi bisa analisis pola curah hujan, debit sungai, dan sejarah banjir daerah tertentu"
     },
     {
-      question: "Which of these is an example of Decomposition?",
+      question: "Rina mau buka usaha bakso Malang. Manakah contoh Dekomposisi yang tepat?",
       answers: [
-        { text: "Breaking a problem into smaller, manageable parts", correct: true },
-        { text: "Ignoring details", correct: false },
-        { text: "Combining unrelated tasks", correct: false },
-        { text: "Overcomplicating simple issues", correct: false }
+        { 
+          text: "Memecah persiapan usaha jadi: resep, modal, lokasi, dan promosi", 
+          correct: true,
+          feedback: "Tepat! Ini membagi masalah besar jadi bagian-bagian kecil" 
+        },
+        { 
+          text: "Buka gerai tanpa riset pasar", 
+          correct: false,
+          feedback: "Ini malah contoh tidak melakukan perencanaan sama sekali" 
+        },
+        { 
+          text: "Fokus hanya pada jenis sambal saja", 
+          correct: false,
+          feedback: "Ini contoh abstraksi, bukan dekomposisi" 
+        },
+        { 
+          text: "Membuat 50 varian rasa sekaligus", 
+          correct: false,
+          feedback: "Ini justru overkompleks tanpa perencanaan" 
+        }
       ],
-      explanation: "Decomposition involves breaking a complex problem into smaller, easier-to-solve pieces."
+      explanation: "Dekomposisi dalam bisnis bakso:<br>- Bahan baku: Analisis supplier daging terbaik<br>- Operasional: Pembagian tugas karyawan<br>- Keuangan: Pisahkan biaya produksi dan marketing<br>- Pemasaran: Bedakan strategi online/offline<br>Dengan breakdown ini, Rina bisa fokus tiap aspek secara detail"
     },
     {
-      question: "What does Abstraction allow you to do?",
+      question: "Apa yang dilakukan Abstraksi saat kamu merencanakan liburan ke Jogja?",
       answers: [
-        { text: "Focus on the most important details while ignoring unnecessary ones", correct: true },
-        { text: "Record every detail without filtering", correct: false },
-        { text: "Increase the complexity of the problem", correct: false },
-        { text: "Skip the planning process", correct: false }
+        { 
+          text: "Fokus pada budget utama & destinasi wajib, abaikan hotel bintang 5", 
+          correct: true,
+          feedback: "Yes! Abstraksi membantu filter info penting" 
+        },
+        { 
+          text: "Catat semua detail sampai merk kamera yang dipakai", 
+          correct: false,
+          feedback: "Ini malah over-detail, bukan abstraksi" 
+        },
+        { 
+          text: "Tidak peduli budget sama sekali", 
+          correct: false,
+          feedback: "Justru abstraksi perlu memperhatikan constraint penting" 
+        },
+        { 
+          text: "Putuskan saat sudah di lokasi", 
+          correct: false,
+          feedback: "Ini improvisasi, bukan perencanaan" 
+        }
       ],
-      explanation: "Abstraction filters out unnecessary details to focus on the essential parts of a problem."
+      explanation: "Contoh abstraksi liburan Jogja:<br>- Fokus utama: Transportasi, penginapan murah, kuliner<br>- Abaikan: Hotel mewah, tur premium<br>- Prioritas: Candi Borobudur & Malioboro<br>- Abstrak dari: Detail menu restoran tertentu<br>Dengan ini, perencanaan jadi lebih efisien"
     },
     {
-      question: "Which is an example of Pattern Recognition?",
+      question: "Apa contoh Pattern Recognition saat menjadi reseller skincare?",
       answers: [
-        { text: "Identifying trends in market data", correct: true },
-        { text: "Randomly selecting data points", correct: false },
-        { text: "Ignoring repeated elements", correct: false },
-        { text: "Overloading with details", correct: false }
+        { 
+          text: "Analisis bahwa produk ceramide laris saat musim kemarau", 
+          correct: true,
+          feedback: "Tepat! Ini menemukan pola dari data penjualan" 
+        },
+        { 
+          text: "Stok produk random tanpa pertimbangan", 
+          correct: false,
+          feedback: "Ini kebalikan dari pattern recognition" 
+        },
+        { 
+          text: "Jual semua produk dengan harga sama", 
+          correct: false,
+          feedback: "Tidak ada analisis pola harga vs permintaan" 
+        },
+        { 
+          text: "Ikutin tren tanpa data", 
+          correct: false,
+          feedback: "Ini ikut-ikutan, bukan analisis pola" 
+        }
       ],
-      explanation: "Pattern recognition involves identifying trends and repeated elements in data."
+      explanation: "Pattern recognition di bisnis skincare:<br>- Pola musiman: Sunscreen naik saat liburan<br>- Pola demografi: Produk anti-aging laris di usia 30+<br>- Pola wilayah: Masyarakat kota lebih suka packaging praktis<br>- Pola harga: Diskon 30% di akhir bulan meningkatkan konversi"
     },
     {
-      question: "What is an Algorithm?",
+      question: "Budi mau membuat algoritma untuk menghitung zakat mal. Manakah yang tepat?",
       answers: [
-        { text: "A step-by-step procedure to solve a problem", correct: true },
-        { text: "A random guess", correct: false },
-        { text: "A physical tool", correct: false },
-        { text: "A set of vague guidelines", correct: false }
+        { 
+          text: "1. Hitung total harta<br>2. Kurangi hutang<br>3. Jika mencapai nisab, kalikan 2.5%", 
+          correct: true,
+          feedback: "Langkah sistematis dan jelas!" 
+        },
+        { 
+          text: "Tanya ke tetangga saja", 
+          correct: false,
+          feedback: "Ini bukan algoritma tapi trial error" 
+        },
+        { 
+          text: "Pakai feeling saja", 
+          correct: false,
+          feedback: "Algoritma harus terukur dan logis" 
+        },
+        { 
+          text: "Transfer random ke lembaga mana saja", 
+          correct: false,
+          feedback: "Tidak ada proses perhitungan valid" 
+        }
       ],
-      explanation: "An algorithm is a defined set of instructions to solve a problem systematically."
+      explanation: "Algoritma zakat yang baik meliputi:<br>1. Definisikan jenis harta (emas, uang, hasil pertanian)<br>2. Hitung periode kepemilikan (1 tahun qamariyah)<br>3. Tentukan nisab (85gr emas)<br>4. Hitung zakat = (Total harta - hutang) × 2.5%<br>5. Salurkan ke mustahiq"
     },
     {
-      question: "When planning a daily schedule using computational thinking, what is a good strategy?",
+      question: "Mana strategi CT yang baik untuk mengatur waktu ujian?",
       answers: [
-        { text: "Divide your day into tasks and assign specific times", correct: true },
-        { text: "Do everything at once", correct: false },
-        { text: "Leave your schedule completely unplanned", correct: false },
-        { text: "Focus only on work, ignoring rest", correct: false }
+        { 
+          text: "Buat jadwal belajar per mata pelajaran + waktu istirahat", 
+          correct: true,
+          feedback: "Kombinasi dekomposisi dan algoritma!" 
+        },
+        { 
+          text: "SKS (Sistem Kebut Semalam)", 
+          correct: false,
+          feedback: "Ini contoh buruk tanpa perencanaan" 
+        },
+        { 
+          text: "Fokus pada 1 pelajaran saja", 
+          correct: false,
+          feedback: "Tidak ada dekomposisi materi ujian" 
+        },
+        { 
+          text: "Belajar sambil nonton drama Korea", 
+          correct: false,
+          feedback: "Multitasking mengurangi efektivitas" 
+        }
       ],
-      explanation: "Dividing your day into tasks and scheduling them helps manage time efficiently."
+      explanation: "Aplikasi CT dalam belajar:<br>1. Dekomposisi: Pecah silabus per bab<br>2. Pattern Recognition: Identifikasi tipe soal yang sering muncul<br>3. Abstraksi: Fokus pada konsep inti bukan hafalan detail<br>4. Algoritma: Buat flow belajar 30 menit + 5 menit istirahat"
     },
     {
-      question: "If you are planning a trip to Bali, what is the first step using decomposition?",
+      question: "Apa langkah pertama menggunakan dekomposisi untuk acara syukuran kelulusan?",
       answers: [
-        { text: "Break the trip into components: budget, itinerary, and logistics", correct: true },
-        { text: "Book tickets without planning", correct: false },
-        { text: "Decide the destination after traveling", correct: false },
-        { text: "Avoid any planning", correct: false }
+        { 
+          text: "Breakdown jadi: venue, catering, undangan, dan acara", 
+          correct: true,
+          feedback: "Tepat! Memecah masalah kompleks" 
+        },
+        { 
+          text: "Booking venue termahal dulu", 
+          correct: false,
+          feedback: "Tanpa perencanaan budget, bisa tekor" 
+        },
+        { 
+          text: "Undang semua teman SD-SMA", 
+          correct: false,
+          feedback: "Ini bagian dari sub-proses undangan" 
+        },
+        { 
+          text: "Langsung pesan katering untuk 500 orang", 
+          correct: false,
+          feedback: "Harus hitung dulu jumlah undangan" 
+        }
       ],
-      explanation: "Decomposition in planning involves breaking down the trip into smaller, manageable parts."
+      explanation: "Dekomposisi acara syukuran:<br>1. Anggaran: Pisahkan biaya venue, makanan, dekor<br>2. Logistik: Transportasi, parkir, sound system<br>3. Acara: Susunan MC, durasi tiap segment<br>4. Kontinjensi: Persiapan cadangan untuk hujan dll"
     },
     {
-      question: "What is the advantage of breaking a problem into parts?",
+      question: "Mengapa memecah masalah jadi bagian kecil lebih efektif?",
       answers: [
-        { text: "It makes the problem more manageable and easier to solve", correct: true },
-        { text: "It complicates the issue further", correct: false },
-        { text: "It wastes time", correct: false },
-        { text: "It creates confusion", correct: false }
+        { 
+          text: "Memungkinkan fokus spesifik & mengurangi overwhelm", 
+          correct: true,
+          feedback: "Benar! Makan gajah harus sesuap-semuap" 
+        },
+        { 
+          text: "Agar terlihat lebih profesional", 
+          correct: false,
+          feedback: "Bukan tentang penampilan tapi efektivitas" 
+        },
+        { 
+          text: "Supaya bisa dikerjakan banyak orang sekaligus", 
+          correct: false,
+          feedback: "Ini bonus tambahan, bukan tujuan utama" 
+        },
+        { 
+          text: "Membuat proses lebih lama", 
+          correct: false,
+          feedback: "Justru menghemat waktu jangka panjang" 
+        }
       ],
-      explanation: "Breaking a problem into parts reduces complexity and allows you to address each component individually."
+      explanation: "Analogi memecah masalah:<br>Seperti merakit IKEA furniture:<br>1. Kelompokkan part berdasarkan jenis<br>2. Pasang sesuai urutan instruksi<br>3. Fokus per komponen (rak, pintu, lemari)<br>4. Hasil akhir terwujud tanpa kebingungan"
     },
     {
-      question: "How does pattern recognition help in daily life?",
+      question: "Bagaimana pattern recognition membantu ibu rumah tangga?",
       answers: [
-        { text: "By identifying trends that can inform better decision-making", correct: true },
-        { text: "By causing random decisions", correct: false },
-        { text: "By ignoring useful information", correct: false },
-        { text: "By complicating simple tasks", correct: false }
+        { 
+          text: "Mengenali pola harga promo supermarket tiap akhir bulan", 
+          correct: true,
+          feedback: "Yes! Ini aplikasi praktis CT" 
+        },
+        { 
+          text: "Belanja tanpa list dan budget", 
+          correct: false,
+          feedback: "Ini contoh tidak menggunakan pattern" 
+        },
+        { 
+          text: "Masak dengan takaran sembarangan", 
+          correct: false,
+          feedback: "Resep masakan justru pakai algoritma" 
+        },
+        { 
+          text: "Menyimpan semua struk belanja acak", 
+          correct: false,
+          feedback: "Data tanpa analisis tidak bermanfaat" 
+        }
       ],
-      explanation: "Pattern recognition helps you spot trends and make informed decisions, such as planning routes or budgeting."
+      explanation: "Contoh pattern recognition rumah tangga:<br>- Pola harga: Beras naik sebelum lebaran<br>- Pola konsumsi: Sabun cepat habis tiap 2 minggu<br>- Pola energi: Listrik boros jam 6-9 malam<br>- Pola nutrisi: Anak rewel kalau kurang protein"
     },
     {
-      question: "What is the benefit of using algorithms in daily tasks?",
+      question: "Apa keuntungan algoritma untuk pedagang kaki lima?",
       answers: [
-        { text: "They provide a systematic approach to solve problems efficiently", correct: true },
-        { text: "They slow down the process", correct: false },
-        { text: "They create ambiguity", correct: false },
-        { text: "They have no practical use", correct: false }
+        { 
+          text: "Memprediksi stok harian & mengatur proses masak", 
+          correct: true,
+          feedback: "Algoritma = resep sukses berjualan!" 
+        },
+        { 
+          text: "Bikin proses lebih ribet", 
+          correct: false,
+          feedback: "Justru menyederhanakan pekerjaan" 
+        },
+        { 
+          text: "Hanya untuk toko online", 
+          correct: false,
+          feedback: "CT berlaku universal semua skala bisnis" 
+        },
+        { 
+          text: "Memaksa pakai aplikasi mahal", 
+          correct: false,
+          feedback: "Algoritma bisa manual tanpa teknologi" 
+        }
       ],
-      explanation: "Algorithms offer a clear, step-by-step approach that helps to solve tasks efficiently and consistently."
+      explanation: "Contoh algoritma pedagang nasi goreng:<br>1. 05.00: Belanja bahan segar<br>2. 06.00: Siapkan bumbu dasar<br>3. 11.00: Mulai goreng sesuai pesanan<br>4. 14.00: Evaluasi sisa stok<br>5. 15.00: Restok bahan habis<br>Dengan ini, operasional jadi lebih efisien"
     }
-  ];
+];
 
       // DOM elements
       const questionText = document.getElementById("question-text");
